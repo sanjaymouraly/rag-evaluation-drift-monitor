@@ -1,0 +1,21 @@
+stateDiagram-v2
+    [*] --> Registered: project + documents + dataset
+    Registered --> Queued: POST /api/runs
+    Queued --> Running: worker picks the job
+    Running --> Scoring: RAG answered + cited
+    Scoring --> Aggregated: metrics computed per item
+    Aggregated --> Completed: all items scored
+    Running --> Cancelled: cancel requested
+    Running --> Failed: item error / budget stop
+    Completed --> Gated: release policy evaluated
+    Gated --> Passed: every hard rule passed
+    Gated --> Failed: a hard rule failed
+    Gated --> Inconclusive: missing or insufficient evidence
+    Completed --> Compared: baseline vs candidate
+    Compared --> Drifted: distribution analysis
+    Passed --> [*]
+    Failed --> [*]
+    Inconclusive --> [*]
+    Drifted --> [*]
+    Cancelled --> [*]
+    Failed --> [*]

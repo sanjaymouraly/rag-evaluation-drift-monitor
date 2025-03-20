@@ -1,0 +1,77 @@
+/* Design tokens — light theme by default, dark theme via [data-theme="dark"]. */
+
+:root {
+  --bg: #f4f6fb;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #eef1f8;
+  --bg-inset: #f8fafc;
+  --surface-border: #dfe4ef;
+  --surface-border-strong: #c6cee0;
+
+  --text: #131a2b;
+  --text-muted: #5a6579;
+  --text-faint: #8b94a7;
+  --text-inverse: #ffffff;
+
+  --accent: #3d5afe;
+  --accent-hover: #2f49dd;
+  --accent-soft: rgba(61, 90, 254, 0.12);
+  --accent-contrast: #ffffff;
+
+  --success: #0f8a5f;
+  --success-soft: rgba(15, 138, 95, 0.13);
+  --warning: #b26a00;
+  --warning-soft: rgba(178, 106, 0, 0.14);
+  --danger: #c02637;
+  --danger-soft: rgba(192, 38, 55, 0.12);
+  --info: #1f6feb;
+  --info-soft: rgba(31, 111, 235, 0.12);
+  --muted-soft: rgba(90, 101, 121, 0.12);
+
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 6px 18px rgba(16, 24, 40, 0.08);
+  --shadow-lg: 0 18px 48px rgba(16, 24, 40, 0.18);
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+
+  --sidebar-width: 236px;
+  --topbar-height: 60px;
+
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --bg-elevated: #151b24;
+  --bg-subtle: #1b222d;
+  --bg-inset: #10161e;
+  --surface-border: #2a323e;
+  --surface-border-strong: #3b4553;
+
+  --text: #e6edf3;
+  --text-muted: #9aa7b8;
+  --text-faint: #6d798c;
+  --text-inverse: #0d1117;
+
+  --accent: #7c8cff;
+  --accent-hover: #93a0ff;
+  --accent-soft: rgba(124, 140, 255, 0.18);
+  --accent-contrast: #0d1117;
+
+  --success: #3fb98b;
+  --success-soft: rgba(63, 185, 139, 0.16);
+  --warning: #e0a250;
+  --warning-soft: rgba(224, 162, 80, 0.16);
+  --danger: #f2707f;
+  --danger-soft: rgba(242, 112, 127, 0.16);
+  --info: #58a6ff;
+  --info-soft: rgba(88, 166, 255, 0.16);
+  --muted-soft: rgba(154, 167, 184, 0.14);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 8px 22px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 22px 56px rgba(0, 0, 0, 0.62);
+}

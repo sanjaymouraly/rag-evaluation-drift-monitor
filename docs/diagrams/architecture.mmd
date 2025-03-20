@@ -1,0 +1,64 @@
+flowchart TB
+    subgraph client["Client / CI"]
+        UI["Web dashboard<br/>(React + Vite)"]
+        CLI["CLI<br/>ragm"]
+        SDK["Python SDK"]
+        GH["GitHub Actions"]
+    end
+
+    subgraph api["FastAPI application"]
+        MW["Security middleware<br/>API key · rate limit · redaction"]
+        ROUTES["REST routers<br/>projects · datasets · runs · gates<br/>drift · providers · reports · system"]
+        JOBS["Durable job pool<br/>bounded workers · retries · cancellation"]
+        SCHED["Scheduler<br/>scheduled evaluations"]
+    end
+
+    subgraph engine["Evaluation engine"]
+        ING["Ingestion<br/>safe parsing · fingerprints"]
+        RET["Retrieval adapters<br/>BM25 · TF-IDF · hashing<br/>REST · pluggable vector DB"]
+        RAG["RAG execution<br/>builtin · REST adapter"]
+        MET["Metric plugins<br/>deterministic · reference-based<br/>heuristic · embedding · judge"]
+        AGG["Aggregation<br/>cohorts · latency · cost"]
+        GATE["Release gate<br/>min · max · max_drop · scopes<br/>bootstrap CI · Wilcoxon · effect size"]
+        DRIFT["Drift analysis<br/>PSI · KS · JSD · control charts"]
+        JUDGE["LLM judge (optional)<br/>rubrics · budgets · human review"]
+    end
+
+    subgraph providers["AI providers (optional)"]
+        OFF["Offline deterministic<br/>free · no key"]
+        OAI["OpenAI / OpenRouter / custom"]
+        ANT["Anthropic Claude"]
+        OLL["Ollama (local)"]
+    end
+
+    DB[("SQLite / PostgreSQL<br/>runs · results · evidence · audit trail")]
+
+    UI -->|HTTP| MW
+    CLI -->|HTTP| MW
+    SDK -->|HTTP| MW
+    GH -->|gate command| CLI
+    MW --> ROUTES
+    ROUTES --> JOBS
+    ROUTES --> ING
+    JOBS --> RAG
+    SCHED --> JOBS
+    ING --> RET
+    RET --> RAG
+    RAG --> MET
+    MET --> AGG
+    AGG --> GATE
+    AGG --> DRIFT
+    AGG --> JUDGE
+    JUDGE --> OAI
+    JUDGE --> ANT
+    JUDGE --> OLL
+    JUDGE --> OFF
+    RAG --> OAI
+    RAG --> ANT
+    RAG --> OLL
+    RAG --> OFF
+    ROUTES --> DB
+    AGG --> DB
+    GATE --> DB
+    DRIFT --> DB
+    JUDGE --> DB

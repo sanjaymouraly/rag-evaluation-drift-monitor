@@ -1,0 +1,268 @@
+{
+  "schema": "rag-quality-monitor/ci-summary/v1",
+  "run_id": 2,
+  "app_version": "v1.0-bm25",
+  "dataset": "library-benchmark",
+  "status": "completed",
+  "verdict": null,
+  "summary": null,
+  "checks": [],
+  "metrics": {
+    "answer_relevancy": {
+      "value": 0.586101,
+      "n": 38,
+      "kind": "heuristic"
+    },
+    "citation_coverage": {
+      "value": 0.868421,
+      "n": 38,
+      "kind": "deterministic"
+    },
+    "citation_doc_recall": {
+      "value": 0.885714,
+      "n": 35,
+      "kind": "deterministic"
+    },
+    "citation_precision": {
+      "value": 1.0,
+      "n": 32,
+      "kind": "deterministic"
+    },
+    "citation_presence": {
+      "value": 1.0,
+      "n": 33,
+      "kind": "deterministic"
+    },
+    "citation_structural_valid": {
+      "value": 1.0,
+      "n": 33,
+      "kind": "deterministic"
+    },
+    "citation_support": {
+      "value": 1.0,
+      "n": 33,
+      "kind": "deterministic"
+    },
+    "citation_unsupported_rate": {
+      "value": 0.0,
+      "n": 33,
+      "kind": "deterministic"
+    },
+    "claim_attribution": {
+      "value": 1.0,
+      "n": 33,
+      "kind": "deterministic"
+    },
+    "claim_support_rate": {
+      "value": 0.947368,
+      "n": 38,
+      "kind": "deterministic"
+    },
+    "completeness": {
+      "value": 0.827816,
+      "n": 28,
+      "kind": "reference_based"
+    },
+    "context_precision": {
+      "value": 0.211429,
+      "n": 35,
+      "kind": "deterministic"
+    },
+    "context_recall": {
+      "value": 1.0,
+      "n": 35,
+      "kind": "deterministic"
+    },
+    "contradiction_rate": {
+      "value": 0.0,
+      "n": 28,
+      "kind": "deterministic"
+    },
+    "correct_abstention": {
+      "value": 0.4,
+      "n": 10,
+      "kind": "deterministic"
+    },
+    "duplicate_chunk_rate": {
+      "value": 0.0,
+      "n": 38,
+      "kind": "operational"
+    },
+    "empty_answer": {
+      "value": 0.0,
+      "n": 38,
+      "kind": "deterministic"
+    },
+    "empty_retrieval": {
+      "value": 0.0,
+      "n": 38,
+      "kind": "operational"
+    },
+    "estimated_cost_usd": {
+      "value": 0.0,
+      "n": 38,
+      "kind": "operational"
+    },
+    "exact_match": {
+      "value": 0.035714,
+      "n": 28,
+      "kind": "reference_based"
+    },
+    "faithfulness": {
+      "value": 0.868421,
+      "n": 38,
+      "kind": "heuristic"
+    },
+    "generation_latency_ms": {
+      "value": 0.67,
+      "n": 38,
+      "kind": "operational"
+    },
+    "hallucination_rate": {
+      "value": 0.131579,
+      "n": 38,
+      "kind": "heuristic"
+    },
+    "hit_at_5": {
+      "value": 1.0,
+      "n": 35,
+      "kind": "deterministic"
+    },
+    "input_tokens": {
+      "value": 0.0,
+      "n": 38,
+      "kind": "operational"
+    },
+    "latency_ms": {
+      "value": 0.762895,
+      "n": 38,
+      "kind": "operational"
+    },
+    "map": {
+      "value": 0.995238,
+      "n": 35,
+      "kind": "deterministic"
+    },
+    "missing_source_rate": {
+      "value": 0.0,
+      "n": 35,
+      "kind": "operational"
+    },
+    "mrr": {
+      "value": 1.0,
+      "n": 35,
+      "kind": "deterministic"
+    },
+    "ndcg_at_5": {
+      "value": 0.997706,
+      "n": 35,
+      "kind": "deterministic"
+    },
+    "normalized_match": {
+      "value": 0.035714,
+      "n": 28,
+      "kind": "reference_based"
+    },
+    "output_tokens": {
+      "value": 0.0,
+      "n": 38,
+      "kind": "operational"
+    },
+    "over_abstention": {
+      "value": 0.035714,
+      "n": 28,
+      "kind": "deterministic"
+    },
+    "precision_at_5": {
+      "value": 0.211429,
+      "n": 35,
+      "kind": "deterministic"
+    },
+    "recall_at_3": {
+      "value": 1.0,
+      "n": 35,
+      "kind": "deterministic"
+    },
+    "recall_at_5": {
+      "value": 1.0,
+      "n": 35,
+      "kind": "deterministic"
+    },
+    "request_error": {
+      "value": 0.0,
+      "n": 38,
+      "kind": "operational"
+    },
+    "retrieval_coverage": {
+      "value": 1.0,
+      "n": 35,
+      "kind": "deterministic"
+    },
+    "retrieval_latency_ms": {
+      "value": 0.092974,
+      "n": 38,
+      "kind": "operational"
+    },
+    "semantic_similarity": {
+      "value": null,
+      "n": 0,
+      "kind": "embedding_based"
+    },
+    "token_f1": {
+      "value": 0.677676,
+      "n": 28,
+      "kind": "reference_based"
+    },
+    "latency_p50_ms": {
+      "value": 0.729,
+      "n": 38,
+      "kind": "operational"
+    },
+    "latency_p95_ms": {
+      "value": 1.209,
+      "n": 38,
+      "kind": "operational"
+    },
+    "latency_p99_ms": {
+      "value": 1.535,
+      "n": 38,
+      "kind": "operational"
+    },
+    "total_input_tokens": {
+      "value": 0.0,
+      "n": 38,
+      "kind": "operational"
+    },
+    "total_output_tokens": {
+      "value": 0.0,
+      "n": 38,
+      "kind": "operational"
+    },
+    "cost_per_request_usd": {
+      "value": 0.0,
+      "n": 38,
+      "kind": "operational"
+    },
+    "cost_per_successful_answer_usd": {
+      "value": 0.0,
+      "n": 33,
+      "kind": "operational"
+    },
+    "failure_rate": {
+      "value": 0.035714,
+      "n": 28,
+      "kind": "deterministic"
+    },
+    "error_rate": {
+      "value": 0.0,
+      "n": 38,
+      "kind": "operational"
+    }
+  },
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "estimated_cost_usd": 0.0,
+    "cost_is_estimate": true
+  }
+}

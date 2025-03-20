@@ -1,0 +1,42 @@
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Node -----------------------------------------------------------------
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+
+# --- local data and secrets ------------------------------------------------
+*.db
+*.db-wal
+*.db-shm
+*.sqlite3
+.env
+.env.local
+data/
+backups/
+.DS_Store
+Thumbs.db
+
+# --- generated artefacts ---------------------------------------------------
+docs/images/*.tmp.png
+playwright-report/
+test-results/
+coverage/
+
+# Local caches and generated files
+build/
+.next/
+*.log
+CHANGELOG.md

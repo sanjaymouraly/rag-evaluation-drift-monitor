@@ -1,0 +1,60 @@
+name: rag-quality-monitor
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    image: rag-quality-monitor-backend:1.1.0
+    environment:
+      RQM_DATABASE_URL: sqlite:////data/rag_monitor.db
+      RQM_CORS_ORIGINS: http://localhost:8080,http://127.0.0.1:8080
+      RQM_API_KEY: ${RQM_API_KEY:-}
+      RQM_ALERT_WEBHOOK_URL: ${RQM_ALERT_WEBHOOK_URL:-}
+      RQM_SCHEDULER_ENABLED: "false"
+    volumes:
+      - rqm-data:/data
+    ports:
+      - "127.0.0.1:8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        VITE_API_BASE: ""
+    image: rag-quality-monitor-frontend:1.1.0
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8080:80"
+    restart: unless-stopped
+
+  # Optional PostgreSQL profile:  docker compose --profile postgres up -d
+  # then set RQM_DATABASE_URL=postgresql+psycopg://rqm:rqm@postgres:5432/rqm
+  postgres:
+    image: postgres:16-alpine
+    profiles: ["postgres"]
+    environment:
+      POSTGRES_USER: rqm
+      POSTGRES_PASSWORD: rqm
+      POSTGRES_DB: rqm
+    volumes:
+      - rqm-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rqm"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  rqm-data:
+  rqm-pgdata:
